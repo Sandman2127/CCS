@@ -13,11 +13,12 @@
 //# SSH into master node (nextflow will provide the command line below, often have to wait 5 min before it will let you in):
 // ssh -i "/Users/deansanders/.ssh/id_rsa" ec2-user@ec2-52-15-199-21.us-east-2.compute.amazonaws.com
 //# Pull docker image
-// docker pull sandmansdownfall/ccs:v0.1
-//# Enter Shared storage
-// cd /mnt/efs
-// #join clusters
+// docker pull sandmansdownfall/ccs3:latest
+//# Mount EFS
+// sudo mount -t efs fs-d064a4a8:/ /mnt/efs
+// #join your cluster
 // nextflow node -bg -cluster.join path:/mnt/efs
+// nextflow node -bg -cluster.join ip:172.31.11.91,172.31.6.74,172.31.12.120
 // #run nextflow command from home 
 // ~/nextflow run -bg runCCS.nf -with-docker sandmansdownfall/ccs3:latest --outDir "s3://ccstest/subDir/" --subreads "s3://ccstest/subDir/*.{bam,bam.pbi}"
 Channel
