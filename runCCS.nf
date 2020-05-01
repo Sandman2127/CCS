@@ -34,7 +34,7 @@ process processCCS {
     //file inputBam from subreads_ch.flatMap()
     
     output:
-    set file('*.log'), file('*.ccs.bam'),file('*.ccs.report.txt') into publishDir 
+    set file('*.log'),file('*.ccs.bam'),file('*.ccs.report.txt') into publishDir 
     
     script:
     bam=bampbi[0]
